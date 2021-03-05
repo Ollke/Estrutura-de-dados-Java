@@ -1,10 +1,8 @@
 package duplo;
 
-import encadeado.CelulaSimples;
-
 public class ListaDupla<T> {
-	private CelulaDupla inicio;
-	private CelulaDupla fim;
+	private CelulaDupla<T> inicio;
+	private CelulaDupla<T> fim;
 	private int tamanho;
 	
 	public ListaDupla() {
@@ -13,16 +11,16 @@ public class ListaDupla<T> {
 		tamanho = 0;
 	}
 
-	public CelulaDupla getInicio() {
+	public CelulaDupla<T> getInicio() {
 		return this.inicio;
 	}
 	
-	public CelulaDupla getFim() {
+	public CelulaDupla<T> getFim() {
 		return this.fim;
 	}
 	
 	public void addInicio(T elemento) {
-		CelulaDupla nova = new CelulaDupla(elemento);
+		CelulaDupla<T> nova = new CelulaDupla<T>(elemento);
 		
 		if (this.tamanho == 0) {
             inicio = nova;
@@ -39,7 +37,7 @@ public class ListaDupla<T> {
 		
 	}
 	public void addFim(T elemento) {
-		CelulaDupla nova = new CelulaDupla(elemento);
+		CelulaDupla<T> nova = new CelulaDupla<T>(elemento);
 		
 		if (this.tamanho == 0) {
             inicio = nova;
@@ -56,20 +54,20 @@ public class ListaDupla<T> {
 	}
 
 	public void add(int posicao,T elemento) {
-		CelulaDupla nova = new CelulaDupla(elemento);
+		CelulaDupla<T> nova = new CelulaDupla<T>(elemento);
         
         if (this.tamanho == 0) {
             
-            System.out.println("A lista está vazia!!");
+            System.out.println("A lista estï¿½ vazia!!");
 
             
         } else if (posicao < 0 || posicao >= this.tamanho) {
             
-            System.out.println("A Posição " + posicao + " é Inválida!");
+            System.out.println("A Posiï¿½ï¿½o " + posicao + " ï¿½ Invï¿½lida!");
  
             
         } else {
-        	CelulaDupla busca = inicio;
+        	CelulaDupla<T> busca = inicio;
             int i = 0;
             while (i<tamanho+1) {
                 if (i != posicao) {
@@ -91,16 +89,16 @@ public class ListaDupla<T> {
         
         if (this.tamanho == 0) {
             
-            System.out.println("A lista está vazia!!");
+            System.out.println("A lista estï¿½ vazia!!");
             return null;
             
         } else if (posicao < 0 || posicao >= this.tamanho) {
             
-            System.out.println("A Posição " + posicao + " é Inválida!");
+            System.out.println("A Posiï¿½ï¿½o " + posicao + " ï¿½ Invï¿½lida!");
             return null;
             
         } else {
-        	CelulaDupla busca = inicio;
+        	CelulaDupla<T> busca = inicio;
             int i = 0;
             while (i<tamanho+1) {
                 if (i != posicao) {
@@ -120,14 +118,14 @@ public class ListaDupla<T> {
      
      if (this.tamanho == 0) {
          
-         System.out.println("A lista está vazia!!");
+         System.out.println("A lista estï¿½ vazia!!");
          
      } else if (posicao < 0 || posicao >= this.tamanho) {
          
-         System.out.println("A Posição " + posicao + " é Inválida!");
+         System.out.println("A Posiï¿½ï¿½o " + posicao + " ï¿½ Invï¿½lida!");
          
      } else {
-     	CelulaDupla busca = inicio;
+     	CelulaDupla<T> busca = inicio;
          int i = 0;
          while (i<tamanho+1) {
              if (i != posicao) {
@@ -146,7 +144,7 @@ public class ListaDupla<T> {
 	 public void removeInicio() {
 	        
 	        if (this.tamanho == 0) {
-	            System.out.println("A lista está vazia!");
+	            System.out.println("A lista estï¿½ vazia!");
 	            
 	        } else if (inicio == fim) {
 	            
@@ -165,7 +163,7 @@ public class ListaDupla<T> {
 	 public void removeFim() {
 	        
 	        if (this.tamanho == 0) {
-	            System.out.println("A lista está vazia!");
+	            System.out.println("A lista estï¿½ vazia!");
 	            
 	        } else if (inicio == fim) {
 	            
@@ -188,7 +186,7 @@ public class ListaDupla<T> {
 	 public void limpa() {
 	        
 	        if (this.tamanho == 0) {
-	            System.out.println("A lista está vazia!");
+	            System.out.println("A lista estï¿½ vazia!");
 	            
 	        } else {
 	        	inicio = null;
@@ -198,7 +196,7 @@ public class ListaDupla<T> {
 	 }
 	 
 	 public boolean existeDado(T elemento) {
-		 CelulaDupla aux = inicio; 
+		 CelulaDupla<T> aux = inicio; 
 		 boolean existe = false;
 		 int i = 0;
 		 while(i<tamanho) {
@@ -219,23 +217,23 @@ public class ListaDupla<T> {
 	        
 	        if (this.tamanho == 0) {
 	            
-	            System.out.println("A lista está vazia!!");
+	            System.out.println("A lista estï¿½ vazia!!");
 
 	            
 	        } else if (posicao < 0 || posicao >= this.tamanho) {
 	            
-	            System.out.println("A Posição " + posicao + " é Inválida!");
+	            System.out.println("A Posiï¿½ï¿½o " + posicao + " ï¿½ Invï¿½lida!");
 	 
 	            
 	        } else if(posicao == tamanho-1) {
-	        	System.out.println("O nó já ocupa a ultima posição");
+	        	System.out.println("O nï¿½ jï¿½ ocupa a ultima posiï¿½ï¿½o");
 	        	
 	        }else if(posicao==0){
 	        	fim.setProximo(inicio);
 	        	fim = inicio;
 	        	inicio = inicio.getProximo();
 	        }else{
-	        	CelulaDupla busca = inicio;
+	        	CelulaDupla<T> busca = inicio;
 	            int i = 0;
 	            while (i<tamanho+1) {
 	                if (i != posicao) {

@@ -1,35 +1,35 @@
 package encadeado;
 
-public class CelulaSimples {
-	private CelulaSimples proximo;
-    private Object elemento;
+public class CelulaSimples<T> {
+	private CelulaSimples<T> proximo;
+    private T elemento;
 
     public CelulaSimples() {
     	
     }
 
-    public CelulaSimples(Object elemento) {
+    public CelulaSimples(T elemento) {
         this.elemento = elemento;
     }
 
-    public CelulaSimples(CelulaSimples proximo, Object elemento) {
+    public CelulaSimples(CelulaSimples<T> proximo, T elemento) {
         this.proximo = proximo;
         this.elemento = elemento;
     }
 
-    public CelulaSimples getProximo() {
+    public CelulaSimples<T> getProximo() {
         return proximo;
     }
 
-    public void setProximo(CelulaSimples proximo) {
+    public void setProximo(CelulaSimples<T> proximo) {
         this.proximo = proximo;
     }
 
-    public Object getElemento() {
+    public T getElemento() {
         return elemento;
     }
 
-    public void setElemento(Object elemento) {
+    public void setElemento(T elemento) {
         this.elemento = elemento;
     }
 }

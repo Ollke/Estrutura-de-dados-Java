@@ -1,10 +1,8 @@
 package encadeado;
 
-import ED.Quarto;
-
 public class ListaEncadeada<T> {
 	
-	private CelulaSimples inicio,fim;
+	private CelulaSimples<T> inicio,fim;
 	private int tamanho;
 	
 	public ListaEncadeada() {
@@ -13,15 +11,15 @@ public class ListaEncadeada<T> {
 		tamanho = 0;
 	}
 	
-	public CelulaSimples getInicio() {
+	public CelulaSimples<T> getInicio() {
 		return this.inicio;
 	}
-	public CelulaSimples getFim() {
+	public CelulaSimples<T> getFim() {
 		return this.fim;
 	}
 	
 	public void addInicio(T elemento) {
-		CelulaSimples nova = new CelulaSimples(elemento);
+		CelulaSimples<T> nova = new CelulaSimples<T>(elemento);
 		
 		if (this.tamanho == 0) {
             inicio = nova;
@@ -37,7 +35,7 @@ public class ListaEncadeada<T> {
 	}
 	
 	public void addFim(T elemento) {
-		CelulaSimples nova = new CelulaSimples(elemento);
+		CelulaSimples<T> nova = new CelulaSimples<T>(elemento);
 		
 		fim.setProximo(nova);
 		fim = nova;
@@ -46,19 +44,19 @@ public class ListaEncadeada<T> {
 	
 	//wip
 	public void add(T elemento,int posicao) {
-		CelulaSimples nova = new CelulaSimples(elemento);
-		CelulaSimples aux = inicio;
-		CelulaSimples auxAnterio = inicio;
+		CelulaSimples<T> nova = new CelulaSimples<T>(elemento);
+		CelulaSimples<T> aux = inicio;
+		CelulaSimples<T> auxAnterio = inicio;
 		int i = 0;
 		if (this.tamanho == 0) {
             
-            System.out.println("A lista está vazia!!");
+            System.out.println("A lista estï¿½ vazia!!");
             
         } else if (posicao < 0) {
-            System.out.println("A Posição " + posicao + " é Inválida!");
+            System.out.println("A Posiï¿½ï¿½o " + posicao + " ï¿½ Invï¿½lida!");
             
         } else if(posicao >= this.tamanho+1) {
-        	System.out.println("A posição é maior que a lista, o elemnto sera adiocionado no fim");
+        	System.out.println("A posiï¿½ï¿½o ï¿½ maior que a lista, o elemnto sera adiocionado no fim");
         	addFim(elemento);
         	
         }else {
@@ -95,16 +93,16 @@ public class ListaEncadeada<T> {
 	        
 	        if (this.tamanho == 0) {
 	            
-	            System.out.println("A lista está vazia!!");
+	            System.out.println("A lista estï¿½ vazia!!");
 	            return null;
 	            
 	        } else if (posicao < 0 || posicao >= this.tamanho) {
 	            
-	            System.out.println("A Posição " + posicao + " é Inválida!");
+	            System.out.println("A Posiï¿½ï¿½o " + posicao + " ï¿½ Invï¿½lida!");
 	            return null;
 	            
 	        } else {
-	        	CelulaSimples busca = inicio;
+	        	CelulaSimples<T> busca = inicio;
 	            int i = 0;
 	            while (i<tamanho) {
 	                if (i != posicao) {
@@ -123,7 +121,7 @@ public class ListaEncadeada<T> {
 	 public void removeInicio() {
 	        
 	        if (this.tamanho == 0) {
-	            System.out.println("A lista está vazia!");
+	            System.out.println("A lista estï¿½ vazia!");
 	            
 	        } else if (inicio == fim) {
 	            
@@ -145,7 +143,7 @@ public class ListaEncadeada<T> {
 	 public void limpa() {
 	        
 	        if (this.tamanho == 0) {
-	            System.out.println("A lista está vazia!");
+	            System.out.println("A lista estï¿½ vazia!");
 	            
 	        } else {
 	        	inicio = null;
@@ -154,7 +152,7 @@ public class ListaEncadeada<T> {
 	 }
 	 
 	 public boolean existeDado(T elemento) {
-		 CelulaSimples aux = inicio; 
+		 CelulaSimples<T> aux = inicio; 
 		 boolean existe = false;
 		 while(aux.getProximo()!= null) {
 			 if(aux.getElemento() == elemento) {
@@ -169,15 +167,15 @@ public class ListaEncadeada<T> {
 	 public void remover(int posicao) {
 			if (this.tamanho == 0) {
 	            
-	            System.out.println("A lista está vazia!!");
+	            System.out.println("A lista estï¿½ vazia!!");
 	            
 	        } else if (posicao < 0 || posicao >= this.tamanho) {
 	            
-	            System.out.println("A Posição " + posicao + " é Inválida!");
+	            System.out.println("A Posiï¿½ï¿½o " + posicao + " ï¿½ Invï¿½lida!");
 	            
 	        } else {
-	        	CelulaSimples busca = inicio;
-	        	CelulaSimples buscaAnterio = inicio;
+	        	CelulaSimples<T> busca = inicio;
+	        	CelulaSimples<T> buscaAnterio = inicio;
 	            int i = 0;
 	            if(posicao==0) {
 	            	removeInicio();
@@ -206,8 +204,8 @@ public class ListaEncadeada<T> {
 			
 		}	
 	 public void removerfim() {
-		 CelulaSimples busca = inicio;
-	     CelulaSimples buscaAnterio = inicio;
+		 CelulaSimples<T> busca = inicio;
+	     CelulaSimples<T> buscaAnterio = inicio;
 	         
 	     	while (true) {
 	         	buscaAnterio = busca;
